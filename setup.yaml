@@ -1,21 +1,29 @@
 users:
-  - name: springbootweb
-    password: $POSTGRESQL_SPRINGBOOTWEB_PASSWORD
+  - name: awx
+    password: $POSTGRESQL_USER1PASS
     role: superuser
+  - name: appzuser2
+    password: $POSTGRESQL_USER2PASS
+    role: createdb
 databases:
-  - name: springbootweb
-    owner: springbootweb
+  - name: awx
+    owner: awx
     tablespace:
       - name: tb1
         location: /appz/data/tb1
     schemas:
-      - name: schema1
-        authorised_user: springbootweb
+      - name: public
+        authorised_user: awx
+        search_path: true
+      - name: schema2
+        authorised_user: appzuser2
         search_path: true
 restore:
-  - database: springbootweb
+  - database: masterdb
     source:
-      url: 'https://www.ecloudcontrol.com/wp-content/uploads/2021/06/accountsdb-springboot.sql_.zip'
-    user: springbootweb
-    password: $POSTGRESQL_SPRINGBOOTWEB_PASSWORD
-    token: 20210720-1355
+       url: 'https://www.ecloudcontrol.com/wp-content/uploads/2021/02/masterdb.zip'
+       user: appz # If it's a password protected URL, authentication (username) is required
+       password: $AUTH_PASSWORD # If it's a password protected URL, authentication (password) is required
+    user: postgres
+    password: $POSTGRES_PASSWORD # password of the 'user' above.
+    token: 20210928-1404 # The restore token to be validated before restoring the database. (Same as TEARDOWN_TOKEN)
