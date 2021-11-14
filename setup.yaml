@@ -21,9 +21,9 @@ databases:
 restore:
   - database: masterdb
     source:
-       url: 'https://www.ecloudcontrol.com/wp-content/uploads/2021/02/masterdb.zip'
-       user: appz # If it's a password protected URL, authentication (username) is required
-       password: $AUTH_PASSWORD # If it's a password protected URL, authentication (password) is required
+       url: 'https://www.ecloudcontrol.com/wp-content/uploads/2021/11/awx_postgress_dump.zip'
+       #user: appz # If it's a password protected URL, authentication (username) is required
+       #password: $AUTH_PASSWORD # If it's a password protected URL, authentication (password) is required
     user: postgres
     password: $POSTGRES_PASSWORD # password of the 'user' above.
-    token: 20211114-1215 # The restore token to be validated before restoring the database. (Same as TEARDOWN_TOKEN)
+    token: 20211114-1334 # The restore token to be validated before restoring the database. (Same as TEARDOWN_TOKEN)
