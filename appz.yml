@@ -4,11 +4,11 @@ app:
     notify: ssankar@ecloudcontrol.com
     
 build:
-    version: 13.X
+    version: 12.7
     env: DEV
     build_file: none
     output_files: output/*.zip
-    image_template: postgres_master-13.3
+    image_template: postgres_master-12.7
     image_name: appz/postgress
     
 deploy:
