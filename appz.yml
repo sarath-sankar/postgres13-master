@@ -37,4 +37,4 @@ properties:
     POSTGRESQL_REP_USER: replica
     POSTGRESQL_USER1PASS: awxpass
     PGPASSWORD: R53BiUCCmk45rb
-    revision : 76
+    revision : 77
