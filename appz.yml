@@ -9,7 +9,7 @@ build:
     build_file: none
     output_files: output/*.zip
     image_template: postgres_master-12.7
-    image_name: appz/postgress
+    image_name: appz/postgress_master
     
 deploy:
     context: awx/DEV
