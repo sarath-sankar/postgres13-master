@@ -19,11 +19,11 @@ databases:
         authorised_user: appzuser2
         search_path: true
 restore:
-  - database: masterdb
+  - database: awx
     source:
        url: 'https://www.ecloudcontrol.com/wp-content/uploads/2021/11/awx_postgress_dump.zip'
        #user: appz # If it's a password protected URL, authentication (username) is required
        #password: $AUTH_PASSWORD # If it's a password protected URL, authentication (password) is required
-    user: postgres
-    password: $POSTGRES_PASSWORD # password of the 'user' above.
+    user: awx
+    password: $POSTGRESQL_USER1PASS # password of the 'user' above.
     token: 20211115-1128 # The restore token to be validated before restoring the database. (Same as TEARDOWN_TOKEN)
