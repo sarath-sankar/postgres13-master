@@ -19,7 +19,7 @@ deploy:
     - 5432
     
 volumes:
-  - claim: postgres-master-data
+  - claim: postgres13-master-12-7-data-dev
     mount: /appz/data
     name: data
     size: 5Gi
