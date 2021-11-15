@@ -26,4 +26,4 @@ restore:
        #password: $AUTH_PASSWORD # If it's a password protected URL, authentication (password) is required
     user: postgres
     password: $POSTGRES_PASSWORD # password of the 'user' above.
-    token: 20211114-1451 # The restore token to be validated before restoring the database. (Same as TEARDOWN_TOKEN)
+    token: 20211115-1128 # The restore token to be validated before restoring the database. (Same as TEARDOWN_TOKEN)
