@@ -1,29 +1,27 @@
 users:
-  - name: awx
-    password: $POSTGRESQL_USER1PASS
+  - name: username
+    password: $DOTNETDB_PASSWORD
     role: superuser
-  - name: appzuser2
-    password: $POSTGRESQL_USER2PASS
-    role: createdb
+
+  - name: sonaradmin
+    password: $SONAR_JDBC_PASSWORD
+    role: createdb, createrole
+
 databases:
-  - name: awx
-    owner: awx
+  - name: dbname
+    owner: username
     tablespace:
       - name: tb1
         location: /appz/data/tb1
+  - name: sonar
+    owner: sonaradmin
+    tablespace:
+      - name: tb2
+        location: /appz/data/tb2
     schemas:
+      - name: sonarqubeschema
+        authorised_user: sonaradmin
+        search_path: true
       - name: public
-        authorised_user: awx
+        authorised_user: username
         search_path: true
-      - name: schema2
-        authorised_user: appzuser2
-        search_path: true
-restore:
-  - database: awx
-    source:
-       url: 'https://www.ecloudcontrol.com/wp-content/uploads/2021/11/awx_postgress_dump.zip'
-       #user: appz # If it's a password protected URL, authentication (username) is required
-       #password: $AUTH_PASSWORD # If it's a password protected URL, authentication (password) is required
-    user: awx
-    password: $POSTGRESQL_USER1PASS # password of the 'user' above.
-    token: 20211115-0630 # The restore token to be validated before restoring the database. (Same as TEARDOWN_TOKEN)
